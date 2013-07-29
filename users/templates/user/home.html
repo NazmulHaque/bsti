@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>BSTI - Bangladesh Institute of Standards & Testing</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class='container'>
+        <div>
+            <img src="/static/img/header_img.jpg" alt="bsti">
+        </div>
+        <div class='loing-form'>
+            <form id='login-form'>
+                <div>
+                    <label>Email: </label>
+                    <input type="email" name="email" value="{{ form.data.email }}" />
+                    {% if form.errors.email %}
+                        <div class="clear"></div>
+                        <div class="form-error">{{ form.errors.email.as_text }}</div>
+                    {% endif %}
+                </div>
+
+                <div>
+                    <label>Password:</label>
+                    <input type="password" name="password" value=""/>
+                    {% if form.errors.password %}
+                        <div class="clear"></div>
+                        <div class="form-error">{{ form.errors.password.as_text }}</div>
+                    {% endif %}
+                </div>
+
+                <a id="login-button" href="#">
+                    login
+                </a>
+
+{#                <button type="submit" id="login-button">LOGIN</button>#}
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
