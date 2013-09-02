@@ -12,20 +12,20 @@
             <form id='login-form'>
                 <div>
                     <label>Email: </label>
-                    <input type="email" name="email" value="{{ form.data.email }}" />
-                    {% if form.errors.email %}
+                    <input type="email"/>
+
                         <div class="clear"></div>
-                        <div class="form-error">{{ form.errors.email.as_text }}</div>
-                    {% endif %}
+                        <div class="form-error"></div>
+
                 </div>
 
                 <div>
                     <label>Password:</label>
-                    <input type="password" name="password" value=""/>
-                    {% if form.errors.password %}
+                    <input type="password"/>
+
                         <div class="clear"></div>
-                        <div class="form-error">{{ form.errors.password.as_text }}</div>
-                    {% endif %}
+                        <div class="form-error"></div>
+
                 </div>
 
                 <a id="login-button" href="#">

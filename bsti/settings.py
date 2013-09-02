@@ -18,7 +18,7 @@ DATABASES = {
         'NAME': 'bsti',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'root',
-        'PASSWORD': 'sqae',
+        'PASSWORD': 'qweqwe',
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     }
@@ -91,8 +91,8 @@ SECRET_KEY = '3oy_i3!#pck!ekx&a@0qvq0rvsa@()mc!rl7^^d#(6ohx%mm13'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.filesystem.Loader',
 #     'django.template.loaders.eggs.Loader',
 )
 
