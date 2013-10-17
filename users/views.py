@@ -1,27 +1,34 @@
-# import datetime
-from django.shortcuts import get_object_or_404, render
-# from django.http import HttpResponseRedirect
-# from django.core.urlresolvers import reverse
-# from django.views import generic
-#
-# from users.models import user
-#
-#
-# import hashlib
-#
-# from django.contrib import auth
-# from django.http import HttpResponse, HttpResponseRedirect
-# from django.template.response import TemplateResponse
-# from django.views.decorators.debug import sensitive_post_parameters
-# from django.template import RequestContext
-# from django.contrib.auth.decorators import login_required
-# from django.conf import settings
-# from django.utils.http import cookie_date
-# new utc
-# from django.utils.timezone import utc
-# from users.utils import get_session
-# from modules.templatetags.module_tags import list_source_filters, list_topic_filters, list_article_filters
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
+from django.shortcuts import redirect
+from django.utils.datastructures import MultiValueDictKeyError
+from django.core.exceptions import ObjectDoesNotExist
+from users.models import user
 
 def home(request):
     return render(request, 'user/home.html')
+
+def login(request):
+    try:
+        email = request.POST['email']
+        password = request.POST['password']
+
+    except MultiValueDictKeyError:
+        msg = 'Try with valid email & password'
+        return redirect('/', {'error_msg': msg})
+
+    else:
+        try:
+            officer = user.objects.get(email = email)
+        except ObjectDoesNotExist:
+            msg = 'Try with valid email.'
+            return render(request, 'user/home.html', {'error_msg': msg})
+        else:
+            user_password = officer.password
+            if user_password == password:
+                request.session['officer_id'] = officer.id
+                return render(request, 'user/index.html', {'user': officer.name, 'email': officer.email, 'password':officer.password})
+            else:
+                msg = 'Try with valid password'
+                return render(request, 'user/home.html', {'error_msg': msg})
 
