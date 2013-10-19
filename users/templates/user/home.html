@@ -4,35 +4,47 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+
+    <div>
+        <img src="/static/img/header_img.jpg" alt="bsti" title='BSTI'>
+    </div>
     <div class='container'>
-        <div>
-            <img src="/static/img/header_img.jpg" alt="bsti">
+        <div class='signup-form'>
+            <form id='signup-form' action="/?reg=registration" method="POST">
+                <label for="Full Name">Full Name:</label>
+                <input type="text" name='name'/>
+                <label for="email">Email:</label>
+                <input type="email" name='email'/>
+                <label for="Password">Password:</label>
+                <input type="password" name='password'/>
+                <h4>{{ reg_msg }}</h4>
+                <button type="submit" id='signup-button'>Sign Up</button>
+
+            </form>
         </div>
-        <div class='loing-form'>
-            <form id='login-form'>
+        <div class='login-form'>
+            <form id='login-form' method='POST' action='/?login=login'>
                 <div>
                     <label>Email: </label>
-                    <input type="email"/>
+                    <input name='email' type="email"/>
 
                         <div class="clear"></div>
-                        <div class="form-error"></div>
+
 
                 </div>
 
                 <div>
                     <label>Password:</label>
-                    <input type="password"/>
+                    <input name='password' type="password"/>
 
                         <div class="clear"></div>
-                        <div class="form-error"></div>
+                        {% if error_msg %}
+                            <div class="form-error">{{ error_msg }}</div>
+                        {% endif %}
 
                 </div>
 
-                <a id="login-button" href="#">
-                    login
-                </a>
-
-{#                <button type="submit" id="login-button">LOGIN</button>#}
+                <button type="submit" id="login-button">LOGIN</button>
             </form>
         </div>
     </div>

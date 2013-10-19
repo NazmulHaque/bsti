@@ -1,3 +1,4 @@
+{% comment %}
 {% if latest_officer_list %}
     <ul>
         {% for officer in latest_officer_list %}
@@ -7,4 +8,24 @@
     </ul>
 {% else %}
     <p>No officers are available.</p>
+{% endif %}{% endcomment %}
+{% if message != '' %}
+    <h4>{{ message }}</h4>
 {% endif %}
+
+<h2> Your Name: {{ user }}</h2>
+<h3>Your Email: {{ email }}</h3>
+<div>
+    <h3>Change Password</h3>
+
+    <form action="/officer?reset=password" method="POST">
+        <label for="Old Password">Old Password:</label>
+        <input type="password" name='old-password'/>
+        <label for="New Password">New Password</label>
+        <input type="password" name='new-password'/>
+        <button type="submit"> Reset Password</button>
+    </form>
+</div>
+<a href='/logout'>Logout</a>
+
+
