@@ -14,11 +14,13 @@ body{
     margin-top: 10px;
 }
 .container img{
+    float:left;
     width: 956px;
     height: 101px;
 }
 
-.loing-form{
+.login-form, .signup-form{
+    float:left;
     margin-top: 10px;
     background-color: white;
     border: 1px solid gray;
@@ -28,9 +30,7 @@ body{
     width: 60%;
     margin-top: 30px;
 }
-td{
-    padding-bottom: 5px;
-}
+
 .label {
     width: 100px;
 }
@@ -38,7 +38,7 @@ input{
     width:300px;
     height: 25px;
 }
-#login-button{
+#login-button, #signup-button{
     width: 200px;
     height: 40px;
     background-color: blue;
