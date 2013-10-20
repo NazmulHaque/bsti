@@ -1,14 +1,3 @@
-{% comment %}
-{% if latest_officer_list %}
-    <ul>
-        {% for officer in latest_officer_list %}
-            <li>{{ officer.name }}</li>
-            <li>{{ officer.email }}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No officers are available.</p>
-{% endif %}{% endcomment %}
 {% if message != '' %}
     <h4>{{ message }}</h4>
 {% endif %}
